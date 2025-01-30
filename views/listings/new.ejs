@@ -1,0 +1,46 @@
+<%layout("/layouts/boilerplate")%>
+<body>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>ENTER NEW RESORT DATA</h4>
+    <!-- <form method="post" action="/listings" class=".needs-validation" novalidate> -->
+        <form method="post" action="/listings" enctype="multipart/form-data">
+      <div class="mb-3">  
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="listing[title]" placeholder="add a title" class="form-control" required>
+        
+    </div>
+    <div class="mb-3">  
+        <label for="description" class="form-label">Description</label>
+       <input type="text" name="listing[description]" placeholder="description"class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image File</label>
+      <input type="file" name="listing[image]" class="form-control">
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+        <div class="mb-3">  
+            <label for="price" class="form-label">Price</label>
+         <input  type="number" name="listing[price]" placeholder="price"class="form-control" >
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="mb-3">  
+            <label for="location" class="form-label">Location</label>
+      <input type="text" name="listing[location]" placeholder="location"class="form-control" required>
+        </div>
+    </div>
+    </div>
+        
+        <div class="mb-3">  
+            <label for="country" class="form-label">Country</label>
+       <input type="text" name="listing[country]" placeholder="india"class="form-control">
+        </div>
+        
+        <button class="btn btn-danger">SUBMIT</button>
+        <br><br>
+    </form>
+</div>
+</div>
+</body>

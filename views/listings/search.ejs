@@ -1,0 +1,30 @@
+<%layout("/layouts/boilerplate")%>
+<style>
+    .data{
+        margin-top: 2rem;
+    }
+</style>
+
+<body>
+    <h3>SEARCH RESULTS</h3>
+    <div class="data">
+        <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-xs-1">
+    <%for(data of results){%>
+
+        <a href="/listings/<%=data._id%>">
+            <div class="card col" >
+                
+                <img src="<%=data.image.url%>" class="card-img-top" alt="resort_image" height="260rem">
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                  <p class="card-text">
+                    <h4><%=data.title%></h4>
+                <p><%=data.description%></p>
+                <p >&#8377;<%=data.price?data.price.toLocaleString("en-IN"):100%>/night<i class="tax-info">&nbsp; +18%GST</i></p> </div>
+            </div>
+        </a>
+   <% }%>
+        </div>
+        </div>
+    
+</body>

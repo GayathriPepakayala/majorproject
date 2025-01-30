@@ -1,0 +1,151 @@
+<%layout("/layouts/boilerplate")%>
+<style>
+   
+    .filters{
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    
+    .filter{
+        text-align: center;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        opacity: 0.7;
+    }
+    .filter:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+    .filter a{
+        text-decoration: none;
+        color: black;
+    }
+    .tax-info{
+        display: none;
+    }
+    .switch-toggle {
+    border: 1px solid black;  /* Border around the switch */
+    padding: 10px 10px;        /* Add some spacing */
+ /* display: inline-block; */
+    border-radius: 10px;      /* Optional: Rounded corners */
+    background-color: #f8f9fa;
+    float: right; /* Light background */
+}
+    
+</style>
+<body>
+    <div class="container">
+   <div class="filters row row-cols-lg-12 row-cols-md-10 row-cols-sm-8 row-cols-xs-4">
+    <div class="filter col">
+        <a href="/listings">
+        <i class="fa-solid fa-fire"></i>
+        <p>Trending</p>
+        </a>
+    </div>
+    <div class="filter col">
+        <a href="/listings/filter?type1=historicplace"><i class="fa-solid fa-building-columns"></i>
+            <p>Historic places</p></a>
+        
+    </div>
+    <div class="filter col">
+        <a href="/listings/filter?type1=resort"><i class="fa-solid fa-hotel"></i>
+            <p>Resorts</p></a>
+        
+    </div>
+    <div class="filter col">
+        <a href="/listings/filter?type1=city"> <i class="fa-solid fa-city"></i>
+            <p>Iconic cities</p></a>
+       
+    </div>
+    <div class="filter col">
+        <a href="/listings/filter?type1=mountain"><i class="fa-solid fa-mountain"></i>
+            <p>Mountains</p></a>
+        
+    </div>
+  
+
+    <div class="filter col">
+        <a href="/listings/filter?type1=beach"> <i class="fa-solid fa-person-swimming"></i>
+            <p>Beach</p></a>
+       
+    </div>
+    <div class="filter col">
+        <a href="/listings/filter?type1=desert"><i class="fa-solid fa-umbrella-beach"></i>
+            <p>Deserts</p></a>
+        
+    </div>
+    <div class="filter col">
+        <a href="/listings/filter?type1=greenery"><i class="fa-solid fa-wheat-awn"></i>
+            <p>Greenary</p></a>
+        
+    </div>
+    <div class="filter col">
+        <a href="/listings/filter?type1=temple"> <i class="fa-solid fa-gopuram"></i>
+            <p>Temples</p></a>
+       
+    </div>
+ 
+   
+    
+</div>
+</div>
+<div class="row">
+
+<div class="col row-cols-lg-9">
+    <h4 style="padding-left: 5px; text-decoration: underline; margin-top: 20px;">RESORTS DATA</h4></div>
+    <div class="col row-cols-lg-3">
+    <div class="switch-toggle">
+        <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Display with tax</label>
+          </div>
+        </div>
+       </div>
+    </div>
+    <br>
+    <div class="data">
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-xs-1">
+    <% for(let data of alldata){
+        %>
+        <a href="/listings/<%=data._id%>">
+        <div class="card col" >
+            
+            <img src="<%=data.image.url%>" class="card-img-top" alt="resort_image" height="260rem">
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <p class="card-text">
+                <h4><%=data.title%></h4>
+            <p><%=data.description%></p>
+            <p >&#8377;<%=data.price?data.price.toLocaleString("en-IN"):100%>/night<i class="tax-info">&nbsp; +18%GST</i></p> </div>
+        </div>
+        </a>
+         
+       
+      
+   <% }%>
+</div>
+</div>
+
+</body>
+<script>
+    let text=document.getElementById("flexSwitchCheckDefault");
+    text.addEventListener("click",()=>{
+        let tax_btn=document.getElementsByClassName("tax-info");
+        for(btntax of tax_btn)
+    {
+        if(btntax.style.display!="inline")
+    {
+        btntax.style.display="inline";
+    }
+    else
+    {
+        btntax.style.display="none";
+    }
+    }
+    })
+    
+   
+
+
+</script>

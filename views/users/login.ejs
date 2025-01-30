@@ -1,0 +1,30 @@
+<%layout("/layouts/boilerplate")%>
+<body>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>LOG IN FOR WANDERLUST</h4>
+            <form method="post" action="/login">
+                <div class="mb-3">  
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" name="username" placeholder="enter username" class="form-control" required>
+                  
+              </div>
+            
+            <div class="mb-3">  
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" placeholder="enter password" class="form-control" required>
+                
+            </div>
+            <button class="btn btn-danger">LOGIN</button>
+            <br><br>
+        </form>
+        
+        <h6>DIDN'T HAVE AN ACCOUNT?</h6>
+            <form method="get" action="/signup">
+                <button class="btn btn-success">SIGNUP</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    </body>
+    
