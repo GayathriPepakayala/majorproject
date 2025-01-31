@@ -120,7 +120,7 @@ app.use((req,res,next)=>{
 
 app.get("/",(req,res)=>{
     console.log("LISTENING TO THE PORT");
-    res.send("/listings");
+    res.redirect("/listings");
 });
 
 
