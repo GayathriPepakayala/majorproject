@@ -88,7 +88,7 @@ main()
 async function main() {
   const client = new MongoClient(db_url, {
     ssl: true,  // Enable SSL
-      // Set minimum TLS version
+      
   });
 
   try {
@@ -120,7 +120,7 @@ app.use((req,res,next)=>{
 
 app.get("/",(req,res)=>{
     console.log("LISTENING TO THE PORT");
-    res.send("working");
+    res.send("/listings");
 });
 
 
