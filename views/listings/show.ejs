@@ -10,10 +10,7 @@
     <p><i class="fa-solid fa-sack-dollar"></i> &#8377;<%=list.price?list.price.toLocaleString("en-IN"):100%>/night</p>
     <p><i class="fa-solid fa-location-dot"></i> Location:<%=list.location%></p>
     <p><i class="fa-solid fa-earth-americas"></i> Country:<%=list.country%></p>
-    <%if(list.type1)
-    {%>
-        <p><i class="fa-solid fa-earth-americas"></i> Type:<%=list.type1%></p>
-        <%}%>
+ 
     <% if(newUser && newUser._id.toString() === list.owner._id.toString()) { %>
 
         <div class="row">
