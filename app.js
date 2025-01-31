@@ -187,11 +187,6 @@
 
 
 
-
-
-
-
-
 require('dotenv').config(); // Always load .env
 
 const express = require("express");
@@ -275,6 +270,13 @@ app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
     res.locals.newUser = req.user;
+    
+        res.locals.ed=req.flash("ed");
+        res.locals.dlt=req.flash("dlt");
+        res.locals.dt=req.flash("dt");
+        res.locals.rv=req.flash("rv");
+       
+        
     next();
 });
 
